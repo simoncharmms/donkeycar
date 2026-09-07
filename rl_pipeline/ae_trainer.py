@@ -122,7 +122,7 @@ class VAE(nn.Module):
         """Load model weights."""
         if device is None:
             device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.load_state_dict(torch.load(path, map_location=device))
+        self.load_state_dict(torch.load(path, map_location=device, weights_only=True))
 
 
 class ImageDataset(Dataset):
